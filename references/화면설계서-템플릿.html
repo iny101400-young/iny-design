@@ -12,6 +12,9 @@
   · 왼쪽 .box 의 .n 번호와 오른쪽 .item 의 .n 번호를 반드시 맞춘다.
   · 미리보기는 정한 색과 정한 글꼴로 그린다. 회색 빈 상자로 두지 않는다.
   · 사진을 넣지 않는다. 전부 CSS 로 그린다. 넣으면 파일이 수십 MB 가 된다.
+  · 누를 수 있는 요소에는 상태 다섯을 적는다. 없으면 06 이 전부 지어낸다.
+  · 04 가 뽑은 깊이(그림자 · 겹침 · 흐림)를 .lift · .over · .glass 로 실제로 그린다.
+    안 그리면 색만 맞고 화면이 납작해진다.
   · word-break:keep-all 과 어두운 화면 대응을 지우지 않는다.
   · 이 파일 안의 예시는 전부 지어낸 것이다. 그대로 쓰지 않는다.
 -->
@@ -107,6 +110,20 @@
   .box.tall{min-height:110px}
   .box.point{background:var(--site-point);color:#fff;border-color:var(--site-point)}
   .box.soft{background:var(--site-soft);border-color:transparent}
+  /* ── 깊이 ──────────────────────────────────
+     04 가 뽑은 3층(그림자 · 겹침 · 흐림)을 미리보기에 실제로 그리는 칸.
+     안 쓰면 화면이 납작해 보인다. 쓰는 것만 남기고 나머지는 지워도 된다 */
+  .box.lift{box-shadow:0 1px 2px rgba(0,0,0,.06),0 8px 24px rgba(0,0,0,.08)}
+  .box.lift-hi{box-shadow:0 2px 4px rgba(0,0,0,.08),0 18px 48px rgba(0,0,0,.14)}
+  .box.over{margin-top:-28px;margin-left:24px;position:relative;z-index:2}
+  .box.glass{backdrop-filter:blur(10px);background:color-mix(in srgb,var(--site-bg) 60%,transparent)}
+  .box.photo{
+    min-height:150px;color:#fff;border:0;
+    background:linear-gradient(135deg,var(--site-point),var(--site-soft));
+  }
+  .photos{display:grid;grid-template-columns:repeat(5,1fr);gap:4px}
+  .photos .box{min-height:120px;margin-bottom:0}
+  @media(max-width:520px){.photos{grid-template-columns:repeat(2,1fr)}}
   .row{display:grid;grid-template-columns:1fr 1fr;gap:10px}
   .row3{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}
   @media(max-width:520px){.row,.row3{grid-template-columns:1fr}}
@@ -126,6 +143,9 @@
     width:74px;text-align:left;vertical-align:top;padding:4px 10px 4px 0;
     color:var(--mut);font-weight:600;font-family:ui-monospace,monospace;font-size:12px;
   }
+  /* 상태 표. 다섯 층과 눈으로 갈리게 살짝 들여 놓는다 */
+  table.states{margin-top:8px;padding-top:8px;border-top:1px dashed var(--line)}
+  table.states th{width:74px;font-family:inherit;font-size:11.5px}
   td{padding:4px 0;color:var(--sub);vertical-align:top}
   td.none{color:var(--mut)}
   .mark{
@@ -225,6 +245,15 @@
             <tr><th>Data</th><td>04 가 정한 메뉴 구성</td></tr>
             <tr><th>API</th><td class="none">없음</td></tr>
             <tr><th>Deploy</th><td>고정된 화면</td></tr>
+          </table>
+          <!-- ▼ 누를 수 있는 것에는 상태를 적는다. 없으면 06 이 전부 지어낸다.
+                 안 눌리는 것에는 이 표 대신 "상태 해당 없음" 한 줄 -->
+          <table class="states">
+            <tr><th>그냥</th><td>{값}</td></tr>
+            <tr><th>올렸을 때</th><td>{값}</td></tr>
+            <tr><th>눌렀을 때</th><td>{값}</td></tr>
+            <tr><th>초점</th><td>{값}</td></tr>
+            <tr><th>꺼짐</th><td class="none">해당 없음</td></tr>
           </table>
         </div>
 
