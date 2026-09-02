@@ -723,9 +723,8 @@ cat ~/.claude/iny-config.json
 
 Claude Code 에 "03 시작" 이라고 치시면 됩니다.
 
-안 뜨면 아직 안 깔린 것입니다. 둘 중 하나로 하시면 됩니다.
-  · 스타터팩을 받으셨으면 → "skills 폴더의 iny-structure 를 내 스킬 폴더로 복사해 줘"
-  · 아니면 → https://github.com/iny101400-young/iny-structure
+안 뜨면 아직 안 깔린 것입니다. 여기서 받으시면 됩니다.
+  https://github.com/iny101400-young/iny-structure
 ```
 
 `구조.md` 는 있는데 `근거.md` 가 없으면 **멈추지 않고 간다.**
@@ -1597,9 +1596,8 @@ Claude Code 에 「05 시작」 이라고 치시면 됩니다.
 
 Claude Code 에 "05 시작" 이라고 치시면 됩니다.
 
-안 뜨면 아직 안 깔린 것입니다. 둘 중 하나로 하시면 됩니다.
-  · 스타터팩을 받으셨으면 → "skills 폴더의 iny-build 를 내 스킬 폴더로 복사해 줘"
-  · 아니면 → https://github.com/iny101400-young/iny-build
+안 뜨면 아직 안 깔린 것입니다. 여기서 받으시면 됩니다.
+  https://github.com/iny101400-young/iny-build
 방금 만든 화면설계서.html 을 그대로 읽습니다.
 ```
 
